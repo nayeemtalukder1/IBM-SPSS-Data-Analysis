@@ -1,0 +1,31 @@
+﻿* Encoding: UTF-8.
+*correlation < 0.05
+
+
+SAVE OUTFILE='D:\Statistics\Data Science\IBM SPSS\IBM-SPSS-Data-Analysis\Multicollinearity\data '+ 
+    'for low birth weight8.SAV' 
+  /COMPRESSED. 
+CORRELATIONS 
+  /VARIABLES=SDIST M15 M4 B8 V730 V445 V438 V437 V511 
+  /PRINT=TWOTAIL NOSIG FULL 
+  /MISSING=PAIRWISE.
+
+*Tolerance value < 0.1
+ *VIF > 5
+ *Condition index > 15
+   
+REGRESSION 
+  /MISSING LISTWISE 
+  /STATISTICS COLLIN TOL 
+  /CRITERIA=PIN(.05) POUT(.10) 
+  /NOORIGIN 
+  /DEPENDENT M19 
+  /METHOD=ENTER SDIST M15 M4 B8 V730 V704 V511 V445 V438 V437 V221 V212.
+
+
+    
+
+
+
+
+
